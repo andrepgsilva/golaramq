@@ -1,0 +1,15 @@
+services:
+  invoice_server:
+    container_name: invoice_server_container
+    image: golang:latest
+    ports:
+      - 8085:8085
+    networks:
+      - store_sail
+    volumes:
+      - ./:/app
+    working_dir: /app
+    command: go run main.go
+networks:
+  store_sail:
+    external: true
